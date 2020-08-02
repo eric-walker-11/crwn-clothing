@@ -1,4 +1,5 @@
 import React from 'react';
+import './HomePage.scss';
 
 export default function HomePage() {
   return (
@@ -9,22 +10,30 @@ export default function HomePage() {
             <h1 className="title">Hats</h1>
             <span className="subtitle">Shop Now</span>
           </div>
+        </div>
+        <div className="menu-item">
           <div className="content">
             <h1 className="title">Jackets</h1>
             <span className="subtitle">Shop Now</span>
           </div>
         </div>
-        <div className="content">
-          <h1 className="title">Sneakers</h1>
-          <span className="subtitle">Shop Now</span>
+        <div className="menu-item">
+          <div className="content">
+            <h1 className="title">Sneakers</h1>
+            <span className="subtitle">Shop Now</span>
+          </div>
         </div>
-        <div className="content">
-          <h1 className="title">Women's</h1>
-          <span className="subtitle">Shop Now</span>
+        <div className="menu-item">
+          <div className="content">
+            <h1 className="title">Women's</h1>
+            <span className="subtitle">Shop Now</span>
+          </div>
         </div>
-        <div className="content">
-          <h1 className="title">Men's</h1>
-          <span className="subtitle">Shop Now</span>
+        <div className="menu-item">
+          <div className="content">
+            <h1 className="title">Men's</h1>
+            <span className="subtitle">Shop Now</span>
+          </div>
         </div>
       </div>
     </div>
