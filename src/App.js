@@ -1,11 +1,13 @@
 import React from 'react';
-import HomePage from './HomePage';
+import { HomePage } from 'pages';
 import './App.css';
 
 function App() {
-  return <div>
-    <HomePage />
-  </div>;
+  return (
+    <div>
+      <HomePage />
+    </div>
+  );
 }
 
 export default App;
