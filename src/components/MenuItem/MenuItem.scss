@@ -1,12 +1,14 @@
 .menu-item {
-  min-width: 30%;
-  height: 240px;
-  flex: 1 1 auto;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  background-position: center;
+  background-size: cover;
   border: 1px solid black;
+  display: flex;
+  flex: 1 1 auto;
+  height: 240px;
+  justify-content: center;
   margin: 0 7.5px 15px;
+  min-width: 30%;
 
   &:first-child {
     margin-right: 7.5px;
@@ -16,25 +18,29 @@
     margin-left: 7.5px;
   }
 
+  &.large {
+    height: 380px;
+  }
+
   .content {
-    height: 90px;
-    padding: 0 25px;
+    align-items: center;
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 90px;
     justify-content: center;
-    border: 1px solid black;
+    padding: 0 25px;
 
     .title {
+      color: #4a4a4a;
+      font-size: 22px;
       font-weight: bold;
       margin-bottom: 6px;
-      font-size: 22px;
-      color: #4a4a4a;
     }
 
     .subtitle {
-      font-weight: lighter;
       font-size: 16px;
+      font-weight: lighter;
     }
   }
 }
