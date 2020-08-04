@@ -1,13 +1,19 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { HomePage } from 'pages';
 import './App.css';
 
-function App() {
+function HatsPage() {
+  return <h1>HATS PAGE</h1>
+}
+
+export default function App() {
   return (
     <div>
-      <HomePage />
+      <Switch>
+        <Route exact path='/' component={HomePage} />
+        <Route exact path='/hats' component={HatsPage} />
+      </Switch>
     </div>
   );
 }
-
-export default App;
