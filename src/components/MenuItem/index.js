@@ -1,2 +1,2 @@
-import MenuItem from './MenuItem';
+import MenuItem from './MenuItem.component';
 export default MenuItem;
