@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormInput } from 'components';
+import { CustomButton, FormInput } from 'components';
 import './SignIn.styles.scss';
 
 export default class SignIn extends Component {
@@ -43,7 +43,7 @@ export default class SignIn extends Component {
             type="password"
             value={password}
           />
-          <input type="submit" value="Submit Form" />
+          <CustomButton type="submit">Sign In</CustomButton>
         </form>
       </div>
     );
