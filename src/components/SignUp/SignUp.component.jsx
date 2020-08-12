@@ -32,8 +32,10 @@ export default class SingUp extends Component {
     }
 
     try {
-      const { user } = await auth.createUserWithEmailAndPassword(email, password);
-      await userDataAccess.createUser(user, { displayName })
+      const {
+        user: userAuth
+      } = await auth.createUserWithEmailAndPassword(email, password);
+      await userDataAccess.createUser({ ...userAuth, displayName });
       await this.setState(INITIAL_STATE);
     } catch (error) {
       console.error(error);

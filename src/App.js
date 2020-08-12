@@ -17,17 +17,19 @@ export default class App extends Component {
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
-        const userRef = await userDataAccess.createUser(userAuth);
-
-        userRef.onSnapshot(
-          userSnapshot => this.setState(
-            {
-              currentUser: { id: userSnapshot.id, ...userSnapshot.data() }
-            },
+        try {
+          const user = await userDataAccess.createUser(userAuth);
+          this.setState(
+            { currentUser: user },
             () => console.debug('Setting signed in user', this.state.currentUser)
-          )
-        );
+          );
+        } catch (error) {
+          console.error('Failed to set an authenticated user', error);
+        }
       } else {
+        if (this.state.currentUser) {
+          console.debug(`Logging out user ${this.state.currentUser.id}`);
+        }
         this.setState({ currentUser: null });
       }
     });
