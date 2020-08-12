@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { CustomButton, FormInput } from 'components';
-import { auth } from 'api/firebase';
-import { userDataAccess } from 'dataAccess';
+import { authService } from 'service';
 import './SignUp.styles.scss';
 
 const INITIAL_STATE = {
@@ -24,21 +23,18 @@ export default class SingUp extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const { confirmPassword, displayName, email, password } = this.state;
 
+    const { confirmPassword, password } = this.state;
     if (password !== confirmPassword) {
       alert('Passwords do not match');
       return;
     }
 
     try {
-      const {
-        user: userAuth
-      } = await auth.createUserWithEmailAndPassword(email, password);
-      await userDataAccess.createUser({ ...userAuth, displayName });
+      await authService.register(this.state);
       await this.setState(INITIAL_STATE);
     } catch (error) {
-      console.error(error);
+      console.error('Failed to register new user', error);
     }
   }
 

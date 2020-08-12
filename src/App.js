@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { auth } from 'api/firebase';
 import { Header } from 'components';
-import { HomePage, ShopPage, SignInPage } from 'pages';
 import { userDataAccess } from 'dataAccess';
+import { HomePage, ShopPage, SignInPage } from 'pages';
+import { authService } from 'service';
 import './App.css';
 
 export default class App extends Component {
@@ -15,7 +15,7 @@ export default class App extends Component {
   unsubscribeFromAuth = () => {};
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    this.unsubscribeFromAuth = authService.onUserStateChange(async userAuth => {
       if (userAuth) {
         try {
           const user = await userDataAccess.createUser(userAuth);

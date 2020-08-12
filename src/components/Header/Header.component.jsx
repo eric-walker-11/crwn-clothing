@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { auth } from 'api/firebase';
+import { authService } from 'service';
 import { ReactComponent as Logo } from 'assets/crown.svg';
 import './Header.styles.scss';
 
@@ -16,7 +16,7 @@ export default function Header({ currentUser }) {
         {
           currentUser
             ? (
-              <div className="option" onClick={() => auth.signOut()}>
+              <div className="option" onClick={() => authService.signOut()}>
                 SIGN OUT
               </div>
             )

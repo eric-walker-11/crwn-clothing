@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { auth, signInWithGoogle } from 'api/firebase';
 import { CustomButton, FormInput } from 'components';
+import { authService } from 'service';
 import './SignIn.styles.scss';
 
 export default class SignIn extends Component {
@@ -16,10 +16,9 @@ export default class SignIn extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const { email, password } = this.state;
 
     try {
-      await auth.signInWithEmailAndPassword(email, password);
+      await authService.signIn(this.state);
       await this.setState({ email: '', password: '' });
     } catch (error) {
       console.error('Failed to sign in', error);
@@ -53,7 +52,10 @@ export default class SignIn extends Component {
           />
           <div className="buttons">
             <CustomButton type="submit">Sign In</CustomButton>
-            <CustomButton isGoogleSignIn onClick={signInWithGoogle}>
+            <CustomButton
+              isGoogleSignIn
+              onClick={() => authService.signInWithGoogle()}
+            >
               Sign In with Google
             </CustomButton>
           </div>
