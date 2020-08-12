@@ -15,9 +15,21 @@ export default class App extends Component {
   unsubscribeFromAuth = () => {};
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
-      await userProfileDataAccess.createUserProfile(user);
-      await this.setState({ currentUser: user });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await userProfileDataAccess.createUserProfile(userAuth);
+
+        userRef.onSnapshot(
+          userSnapshot => this.setState(
+            {
+              currentUser: { id: userSnapshot.id, ...userSnapshot.data() }
+            },
+            () => console.debug('Setting signed in user', this.state.currentUser)
+          )
+        );
+      } else {
+        this.setState({ currentUser: null });
+      }
     });
   }
 
