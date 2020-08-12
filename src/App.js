@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { auth } from 'api/firebase';
 import { Header } from 'components';
 import { HomePage, ShopPage, SignInPage } from 'pages';
-import { userProfileDataAccess } from 'service/dataAccess';
+import { userDataAccess } from 'service/dataAccess';
 import './App.css';
 
 export default class App extends Component {
@@ -17,7 +17,7 @@ export default class App extends Component {
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
-        const userRef = await userProfileDataAccess.createUserProfile(userAuth);
+        const userRef = await userDataAccess.createUser(userAuth);
 
         userRef.onSnapshot(
           userSnapshot => this.setState(

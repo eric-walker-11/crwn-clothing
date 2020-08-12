@@ -1,6 +1,6 @@
 import { firestore } from 'api/firebase';
 
-export async function createUserProfile(userAuth, additionalData) {
+export async function createUser(userAuth, additionalData) {
   if (!userAuth) {
     return;
   }

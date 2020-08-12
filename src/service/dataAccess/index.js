@@ -1,2 +1,2 @@
-import * as userProfileImport from './userProfile.data';
-export const  userProfileDataAccess = userProfileImport;
+import * as userImport from './user.data';
+export const userDataAccess = userImport;

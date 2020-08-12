@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { CustomButton, FormInput } from 'components';
 import { auth } from 'api/firebase';
-import { userProfileDataAccess } from 'service/dataAccess';
+import { userDataAccess } from 'service/dataAccess';
 import './SignUp.styles.scss';
 
 const INITIAL_STATE = {
@@ -33,7 +33,7 @@ export default class SingUp extends Component {
 
     try {
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
-      await userProfileDataAccess.createUserProfile(user, { displayName })
+      await userDataAccess.createUser(user, { displayName })
       await this.setState(INITIAL_STATE);
     } catch (error) {
       console.error(error);
