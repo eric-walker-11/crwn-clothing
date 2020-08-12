@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { auth } from 'api/firebase';
 import { Header } from 'components';
 import { HomePage, ShopPage, SignInPage } from 'pages';
-import { userDataAccess } from 'service/dataAccess';
+import { userDataAccess } from 'dataAccess';
 import './App.css';
 
 export default class App extends Component {

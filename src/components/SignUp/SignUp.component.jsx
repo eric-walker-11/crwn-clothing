@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { CustomButton, FormInput } from 'components';
 import { auth } from 'api/firebase';
-import { userDataAccess } from 'service/dataAccess';
+import { userDataAccess } from 'dataAccess';
 import './SignUp.styles.scss';
 
 const INITIAL_STATE = {
