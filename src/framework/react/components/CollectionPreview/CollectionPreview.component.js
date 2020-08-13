@@ -1,5 +1,5 @@
 import React from 'react';
-import { CollectionItem } from 'react/components';
+import { CollectionItem } from 'framework/react/components';
 import './CollectionPreview.styles.scss';
 
 export default function CollectionPreview({ items, title }) {

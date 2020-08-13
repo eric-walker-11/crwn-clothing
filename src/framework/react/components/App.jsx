@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { userDataAccess } from 'dataAccess';
-import { Header } from 'react/components';
-import { HomePage, ShopPage, SignInPage } from 'react/pages';
+import { Header } from 'framework/react/components';
+import { HomePage, ShopPage, SignInPage } from 'framework/react/pages';
 import { authService } from 'service';
-import './App.css';
+import './App.scss';
 
 export default class App extends Component {
   constructor() {

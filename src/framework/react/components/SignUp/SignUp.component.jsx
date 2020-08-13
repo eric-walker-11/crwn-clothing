@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CustomButton, FormInput } from 'react/components';
+import { CustomButton, FormInput } from 'framework/react/components';
 import { authService } from 'service';
 import './SignUp.styles.scss';
 
