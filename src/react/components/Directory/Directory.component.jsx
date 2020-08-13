@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { MenuItem } from 'components';
 import { SECTIONS } from 'const';
+import { MenuItem } from 'react/components/index';
 import './Directory.styles.scss';
 
 export default class Directory extends Component {

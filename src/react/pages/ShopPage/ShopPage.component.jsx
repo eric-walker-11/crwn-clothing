@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { CollectionPreview } from 'components';
 import { SHOP_DATA } from 'const';
+import { CollectionPreview } from 'react/components';
 import './ShopPage.styles.scss';
 
 export default class ShopPage extends Component {

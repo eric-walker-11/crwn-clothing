@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignIn, SignUp } from 'components';
+import { SignIn, SignUp } from 'react/components';
 import './SignInPage.styles.scss';
 
 export default function SignInPage() {

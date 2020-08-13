@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Header } from 'components';
 import { userDataAccess } from 'dataAccess';
-import { HomePage, ShopPage, SignInPage } from 'pages';
+import { Header } from 'react/components';
+import { HomePage, ShopPage, SignInPage } from 'react/pages';
 import { authService } from 'service';
 import './App.css';
 
