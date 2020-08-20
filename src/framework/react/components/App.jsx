@@ -47,7 +47,9 @@ class App extends Component {
             exact
             path='/signIn'
             render={
-              () => currentUser ? (<Redirect to="/" />) : (<SignInPage />)
+              () => currentUser
+                ? (<Redirect to="/" />)
+                : (<SignInPage />)
             }
           />
         </Switch>

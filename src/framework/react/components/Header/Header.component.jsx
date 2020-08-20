@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { CartIcon } from 'framework/react/components';
 import { authService } from 'service';
 import { ReactComponent as Logo } from 'assets/crown.svg';
 import './Header.styles.scss';
@@ -21,8 +22,9 @@ function Header({ currentUser }) {
                 SIGN OUT
               </div>
             )
-            : <Link className="option" to="/signIn">SIGN IN</Link>
+            : (<Link className="option" to="/signIn">SIGN IN</Link>)
         }
+        <CartIcon />
       </div>
     </div>
   );
