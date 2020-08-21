@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { CartIcon } from 'framework/react/components';
+import { CartDropdown, CartIcon } from 'framework/react/components';
 import { authService } from 'service';
 import { ReactComponent as Logo } from 'assets/crown.svg';
 import './Header.styles.scss';
@@ -26,6 +26,7 @@ function Header({ currentUser }) {
         }
         <CartIcon />
       </div>
+      <CartDropdown />
     </div>
   );
 }

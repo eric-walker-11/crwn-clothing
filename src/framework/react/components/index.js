@@ -1,4 +1,5 @@
 export { default as App } from './App';
+export { default as CartDropdown } from './CartDropdown';
 export { default as CartIcon } from './CartIcon';
 export { default as CollectionItem } from './CollectionItem';
 export { default as CollectionPreview } from './CollectionPreview';
