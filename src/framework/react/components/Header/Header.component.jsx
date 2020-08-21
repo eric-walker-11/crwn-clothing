@@ -6,7 +6,7 @@ import { authService } from 'service';
 import { ReactComponent as Logo } from 'assets/crown.svg';
 import './Header.styles.scss';
 
-function Header({ currentUser }) {
+function Header({ currentUser, hidden }) {
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -26,13 +26,14 @@ function Header({ currentUser }) {
         }
         <CartIcon />
       </div>
-      <CartDropdown />
+      { !hidden && <CartDropdown /> }
     </div>
   );
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = ({ cart: { hidden }, user: { currentUser } }) => ({
+  currentUser,
+  hidden
 });
 
 export default connect(mapStateToProps)(Header);

@@ -1,3 +1,3 @@
-import * as userActionImport from './user.action';
-export const userActions = userActionImport;
+import * as userActionsImport from './user.actions';
+export const userActions = userActionsImport;
 export { default as userReducer } from './user.reducer';

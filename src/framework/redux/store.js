@@ -1,7 +1,14 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import logger from 'redux-logger';
 import reducer from './root.reducer';
 
-const middleware = [logger];
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export default createStore(reducer, applyMiddleware(...middleware));
+const middleware = [
+  logger
+];
+
+export default createStore(
+  reducer,
+  composeEnhancers(applyMiddleware(...middleware))
+);
