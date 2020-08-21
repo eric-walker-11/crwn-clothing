@@ -20,9 +20,9 @@ $color: white;
   width: auto;
 
   &:hover {
-    background-color: white;
-    border: 1px solid black;
-    color: black;
+    background-color: $color;
+    border: 1px solid $background-color;
+    color: $background-color;
   }
 
   &.google-sign-in {
@@ -38,5 +38,11 @@ $color: white;
   &.inverted {
     background-color: $color;
     color: $background-color;
+
+    &:hover {
+      background-color: $background-color;
+      border-color: $color;
+      color: $color;
+    }
   }
 }
