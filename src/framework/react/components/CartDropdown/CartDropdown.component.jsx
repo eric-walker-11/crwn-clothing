@@ -8,15 +8,17 @@ import { selectors } from 'framework/redux';
 
 import './CartCropdown.styles.scss';
 
-const CartDropdown = ({ cartItems, history }) => (
+const { selectCartEmpty, selectCartItems } = selectors;
+
+const CartDropdown = ({ cartItems, history, isEmpty }) => (
   <div className="cart-dropdown">
     <div className="cart-items">
       {
-        cartItems.length
-          ? cartItems.ids.map(id => (
+        isEmpty
+          ? <span className="empty-message">Your cart is empty</span>
+          : cartItems.ids.map(id => (
             <CartItem key={id} cartItem={cartItems[id]} />
           ))
-          : <span className="empty-message">Your cart is empty</span>
       }
     </div>
     <CustomButton onClick={() => history.push('/checkout')}>
@@ -26,7 +28,8 @@ const CartDropdown = ({ cartItems, history }) => (
 );
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: selectors.selectCartItems
+  cartItems: selectCartItems,
+  isEmpty: selectCartEmpty
 });
 
 export default withRouter(connect(mapStateToProps)(CartDropdown));
