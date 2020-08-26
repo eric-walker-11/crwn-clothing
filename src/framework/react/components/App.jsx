@@ -5,14 +5,19 @@ import { createStructuredSelector } from 'reselect';
 
 import { userDataAccess } from 'dataAccess';
 import { Header } from 'framework/react/components';
-import { actions } from 'framework/redux';
-import { HomePage, ShopPage, SignInPage } from 'framework/react/pages';
-import { selectors } from 'framework/redux';
+import {
+  CheckoutPage,
+  HomePage,
+  ShopPage,
+  SignInPage
+} from 'framework/react/pages';
+import { actions, selectors } from 'framework/redux';
 import { authService } from 'service';
 
 import './App.scss';
 
 const { setCurrentUser } = actions;
+const { selectCurrentUser } = selectors;
 
 class App extends Component {
   unsubscribeFromAuth = () => {};
@@ -45,8 +50,9 @@ class App extends Component {
       <div>
         <Header />
         <Switch>
-          <Route exact path='/' component={HomePage}/>
-          <Route exact path='/shop' component={ShopPage}/>
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/checkout' component={CheckoutPage} />
+          <Route path='/shop' component={ShopPage} />
           <Route
             exact
             path='/signIn'
@@ -63,7 +69,7 @@ class App extends Component {
 };
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectors.selectCurrentUser
+  currentUser: selectCurrentUser
 });
 
 const mapDispatchToProps = dispatch => ({
