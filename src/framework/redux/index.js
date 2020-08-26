@@ -1,5 +1,5 @@
 import { cartActions, cartSelectors } from './cart';
-import { userActions } from './user';
+import { userActions, userSelectors } from './user';
 
 export const actions = {
   ...cartActions,
@@ -7,7 +7,8 @@ export const actions = {
 };
 
 export const selectors = {
-  ...cartSelectors
+  ...cartSelectors,
+  ...userSelectors
 };
 
 export { default as store } from './store';
