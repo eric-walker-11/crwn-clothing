@@ -10,9 +10,13 @@ import './CartCropdown.styles.scss';
 const CartDropdown = ({ cartItems }) => (
   <div className="cart-dropdown">
     <div className="cart-items">
-      {cartItems.ids.map(id => (
-        <CartItem key={id} cartItem={cartItems[id]} />
-      ))}
+      {
+        cartItems.length
+          ? cartItems.ids.map(id => (
+            <CartItem key={id} cartItem={cartItems[id]} />
+          ))
+          : <span className="empty-message">Your cart is empty</span>
+      }
     </div>
     <CustomButton>GO TO CHECKOUT</CustomButton>
   </div>
