@@ -1,29 +1,14 @@
-import { ADD_CART_ITEM, TOGGLE_CART_HIDDEN } from './cart.types';
+import { addCartItem, removeCartItem } from './cart.helpers';
+import {
+  ADD_CART_ITEM,
+  REMOVE_CART_ITEM,
+  TOGGLE_CART_HIDDEN
+} from './cart.types';
 
 const INITIAL_STATE = {
   cartItems: { ids: [] },
   hidden: true
 };
-
-function addCartItem(cartItems, item) {
-  const existingItem = cartItems[item.id];
-
-  if (existingItem) {
-    return {
-      ...cartItems,
-      [item.id]: {
-        ...existingItem,
-        quantity: existingItem.quantity + 1
-      }
-    };
-  }
-
-  return {
-    ...cartItems,
-    ids: [...cartItems.ids, item.id].sort(),
-    [item.id]: { item, quantity: 1 }
-  };
-}
 
 export default function cartReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -31,6 +16,12 @@ export default function cartReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         cartItems: addCartItem(state.cartItems, action.payload)
+      };
+
+    case REMOVE_CART_ITEM:
+      return {
+        ...state,
+        cartItems: removeCartItem(state.cartItems, action.payload)
       };
 
     case TOGGLE_CART_HIDDEN:
