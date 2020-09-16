@@ -10,7 +10,7 @@ const INITIAL_STATE = {
   hidden: true
 };
 
-export default function cartReducer(state = INITIAL_STATE, action) {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_CART_ITEM:
       return {
