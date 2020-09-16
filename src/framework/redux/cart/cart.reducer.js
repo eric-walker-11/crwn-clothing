@@ -1,7 +1,7 @@
-import { addCartItem, removeCartItem } from './cart.helpers';
+import { addCartItem, clearCartItem } from './cart.helpers';
 import {
   ADD_CART_ITEM,
-  REMOVE_CART_ITEM,
+  CLEAR_CART_ITEM,
   TOGGLE_CART_HIDDEN
 } from './cart.types';
 
@@ -18,10 +18,10 @@ export default function cartReducer(state = INITIAL_STATE, action) {
         cartItems: addCartItem(state.cartItems, action.payload)
       };
 
-    case REMOVE_CART_ITEM:
+    case CLEAR_CART_ITEM:
       return {
         ...state,
-        cartItems: removeCartItem(state.cartItems, action.payload)
+        cartItems: clearCartItem(state.cartItems, action.payload)
       };
 
     case TOGGLE_CART_HIDDEN:

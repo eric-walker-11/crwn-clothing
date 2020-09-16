@@ -18,7 +18,7 @@ export function addCartItem(cartItems, item) {
   };
 };
 
-export function removeCartItem(cartItems, cartItem) {
+export function clearCartItem(cartItems, cartItem) {
   const { item } = cartItem;
 
   if (!cartItems[item.id]) {

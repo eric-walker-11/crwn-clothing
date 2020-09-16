@@ -5,7 +5,7 @@ import { actions } from 'framework/redux';
 
 import './CheckoutItem.styles.scss';
 
-const CheckoutItem = ({ cartItem, removeCartItem }) => {
+const CheckoutItem = ({ cartItem, clearCartItem }) => {
   const {
     item: { imageUrl, name, price },
     quantity
@@ -17,9 +17,13 @@ const CheckoutItem = ({ cartItem, removeCartItem }) => {
         <img alt="item" src={imageUrl} />
       </div>
       <span className="name">{name}</span>
-      <span className="quantity">{quantity}</span>
+      <span className="quantity">
+        <div className="arrow">&#10094;</div>
+        <span className="value">{quantity}</span>
+        <div className="arrow">&#10095;</div>
+      </span>
       <span className="price">${price}</span>
-      <div className="remove-button" onClick={() => removeCartItem(cartItem)}>
+      <div className="remove-button" onClick={() => clearCartItem(cartItem)}>
         &#10005;
       </div>
     </div>
@@ -27,7 +31,7 @@ const CheckoutItem = ({ cartItem, removeCartItem }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  removeCartItem: cartItem => dispatch(actions.removeCartItem(cartItem))
+  clearCartItem: cartItem => dispatch(actions.clearCartItem(cartItem))
 });
 
 export default connect(null, mapDispatchToProps)(CheckoutItem);
