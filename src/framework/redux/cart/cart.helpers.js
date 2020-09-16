@@ -18,9 +18,7 @@ export function addCartItem(cartItems, item) {
   };
 };
 
-export function clearCartItem(cartItems, cartItem) {
-  const { item } = cartItem;
-
+export function clearCartItem(cartItems, item) {
   if (!cartItems[item.id]) {
     return cartItems;
   }
@@ -31,4 +29,23 @@ export function clearCartItem(cartItems, cartItem) {
   };
   delete updatedCartItems[item.id];
   return updatedCartItems;
+};
+
+export function removeCartItem(cartItems, item) {
+  const existingCartItem = cartItems[item.id];
+  if (!existingCartItem) {
+    return cartItems;
+  }
+
+  if (existingCartItem.quantity <= 1) {
+    return clearCartItem(cartItems, item);
+  }
+
+  return {
+    ...cartItems,
+    [item.id]: {
+      ...existingCartItem,
+      quantity: existingCartItem.quantity - 1
+    }
+  };
 };
