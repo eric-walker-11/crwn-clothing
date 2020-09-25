@@ -10,5 +10,7 @@ export const selectShopCollections = createSelector(
 export const selectShopCollectionByName = collectionName => createSelector(
   [selectShopCollections],
   collections =>
-    collections.find(collection => collection.name === collectionName)
+    collections.find(
+      collection => collection.title.toLowerCase() === collectionName
+    )
 );
