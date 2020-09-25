@@ -11,7 +11,7 @@ export default ({ match }) => (
     <Route component={CollectionsOverview} exact path={match.path} />
     <Route
       component={CollectionShopPage}
-      path={`${match.path}/:collectionName`}
+      path={`${match.path}/:collectionTitle`}
     />
   </div>
 );

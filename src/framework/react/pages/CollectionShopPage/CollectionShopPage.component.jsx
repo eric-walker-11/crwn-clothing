@@ -6,7 +6,7 @@ import { selectors } from 'framework/redux';
 
 import './CollectionShopPage.styles.scss';
 
-const { selectShopCollectionByName } = selectors;
+const { selectShopCollectionByTitle } = selectors;
 
 const CollectionShopPage = ({ collection }) => {
   const { title, items } = collection;
@@ -26,11 +26,11 @@ const mapStateToProps = (
   state,
   {
     match: {
-      params: { collectionName }
+      params: { collectionTitle }
     }
   }
 ) => ({
-  collection: selectShopCollectionByName(collectionName)(state)
+  collection: selectShopCollectionByTitle(collectionTitle)(state)
 });
 
 export default connect(mapStateToProps)(CollectionShopPage);
