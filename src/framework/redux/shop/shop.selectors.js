@@ -7,6 +7,11 @@ export const selectShopCollections = createSelector(
   shop => shop.collections
 );
 
+export const selectShopCollectionsList = createSelector(
+  [selectShop],
+  shop => shop.collectionsList
+)
+
 export const selectShopCollectionByTitle = title => createSelector(
   [selectShopCollections],
   collections => collections[title]

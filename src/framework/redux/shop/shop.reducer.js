@@ -7,7 +7,8 @@ const INITIAL_STATE = {
       [collection.title.toLowerCase()]: collection
     }),
     {}
-  )
+  ),
+  collectionsList: shopData
 };
 
 export default (state = INITIAL_STATE, action) => {

@@ -7,7 +7,7 @@ import { selectors } from 'framework/redux';
 
 import './CollectionsOverview.styles.scss';
 
-const { selectShopCollections } = selectors;
+const { selectShopCollectionsList } = selectors;
 
 const CollectionsOverview = ({ collections }) => (
   <div className="collections-overview">
@@ -18,7 +18,7 @@ const CollectionsOverview = ({ collections }) => (
 );
 
 const mapStateToProps = createStructuredSelector({
-  collections: selectShopCollections
+  collections: selectShopCollectionsList
 });
 
 export default connect(mapStateToProps)(CollectionsOverview);
