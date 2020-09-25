@@ -6,6 +6,11 @@
   min-height: 90vh;
   width: 55%;
 
+  button {
+    margin-left: auto;
+    margin-top: 50px;
+  }
+
   .checkout-header {
     border-bottom: 1px solid darkgrey;
     display: flex;
@@ -21,6 +26,13 @@
         width: 8%;
       }
     }
+  }
+
+  .test-warning {
+    color: red;
+    font-size: 40px;
+    margin-top: 40px;
+    text-align: center;
   }
 
   .total {
