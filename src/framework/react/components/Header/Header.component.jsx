@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 
 import { CartDropdown, CartIcon } from 'framework/react/components';
@@ -8,30 +7,35 @@ import { selectors } from 'framework/redux';
 import { authService } from 'service';
 import { ReactComponent as Logo } from 'assets/crown.svg';
 
-import './Header.styles.scss';
+import {
+  HeaderContainer,
+  LogoContainer,
+  Option,
+  OptionsContainer
+} from './Header.styles'
 
 function Header({ currentUser, hidden }) {
   return (
-    <div className="header">
-      <Link className="logo-container" to="/">
+    <HeaderContainer>
+      <LogoContainer to="/">
         <Logo className="logo" />
-      </Link>
-      <div className="options">
-        <Link className="option" to="/shop">SHOP</Link>
-        <Link className="option" to="/contact">CONTACT</Link>
+      </LogoContainer>
+      <OptionsContainer>
+        <Option to="/shop">SHOP</Option>
+        <Option to="/contact">CONTACT</Option>
         {
           currentUser
             ? (
-              <div className="option" onClick={() => authService.signOut()}>
+              <Option as="div" onClick={() => authService.signOut()}>
                 SIGN OUT
-              </div>
+              </Option>
             )
-            : (<Link className="option" to="/signIn">SIGN IN</Link>)
+            : (<Option to="/signIn">SIGN IN</Option>)
         }
         <CartIcon />
-      </div>
+      </OptionsContainer>
       { !hidden && <CartDropdown /> }
-    </div>
+    </HeaderContainer>
   );
 }
 
